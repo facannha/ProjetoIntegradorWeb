@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!--Fonte garantia-->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Khand&family=Titillium+Web:wght@300&display=swap');
+    </style>
+    <!--Bootstrap CSS-->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"  crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>-->
+    <!--Estilo filtro-->
+    <style>
+    .filterDiv {
+        float: left;
+        background-color: #f5f5f5;
+        width: 300px;
+        height: 200px;
+        font-size: 20px;
+        text-align: center;
+        margin: 2px;
+        margin-left: 13px;
+        display: none; /* Permite selecionar um elemento */
+    }
+    a {
+        text-decoration: none;
+        color: #000000;
+    }    
+    .show {
+        display: block;
+    } 
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+        font-size: 18px;
+        width: 8%;
+        margin-left: 3%;
+    }     
+    .btn:hover {
+        background-color: #ddd;
+    }
+    .btn.active {
+        background-color: #666;
+        color: white;
+        
+    }
+    </style>
+    <title>Cursos - KA.NEXT</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="imglogo" src="Imagens/Turbo.png" alt="KA.NEXT"></a>
+        <a href="cadastro.html"><button class="btncadastro"><b>CADASTRE-SE</b></button></a>
+        <a href="login.php"><button class="btncadastro"><b>ENTRAR</b></button></a>
+    </header>
+    
+    <div class="links">                 
+        <a href="index.html">Menu</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="quemsomos.html">Quem somos</a>
+        <a href="suporte.html">Suporte</a>
+    </div>
+
+    <p id="cat">Cursos de programação</p>
+
+    <fieldset>
+    <legend><b>Cursos em alta para você!</b></legend>
+        <div class="cartao2">
+            <img src="https://www.cursou.com.br/wp-content/uploads/2017/11/Curso-de-Desenvolvimento-Web.png" style="width: 100%;">
+            <div class="espaco">
+            <h4>Desenvolvimento web</h4>
+            <p>Domine o desenvolvimento web com HTML, CSS, JavaScript e PHP e implemente em seu site.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="data:image/jpeg;base64,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" style="width: 100%;">
+            <div class="espaco">
+            <h4>Python</h4>
+            <p>Aprenda Python do básico ao avançado, incluindo projetos para acompanhar e colocar em prática.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEX19fU1MzT6+vr7+/slIyS2trYoJif09PT////a2tr09vUkISM3NTYwLi/t7e0zMTIdGRvNzc1gYGCwsLCioKFXV1cqJynFxcXg4OAgICApJihLSUqYlpfm5uYfHR7T09OGhIV8entxcXGOjo5qaGkAAACysrKnp6e+vL1bW1tPTU6bm5uLi4t1c3RBP0AVERMTFBNUnMr2AAASF0lEQVR4nO1dCXuiPNcmiyRIQooL4AJqdapVS+f//7rvHBa3Wmt9W+Cbh/uakYKKuT3J2XISLatFixYtWrRo0aJFixYtWrRo0aJFixYtWrRo8V8BZb+KuulZVrwb/CZ2M1o3Q+ed27+I95f6GY6J+kXwTv0MXUWC5Ok3kHBC3CYwJHZfeL+CmU0aIUNoBROW1T0if4ZJxiScoUaEo1Ucu3i5OJbnoDK7H0C7TnMYUvHxCRq+brdLOG6G2+GS4nG4nVJBO3DcUYv14Toe18PhcM2u3MFqOkOttXnfUKHg+De0PKWN+etTD0713xn1/hqjkxmNXLj+7ly9d7MZMhJo/R4yZKiRmbKB6QwZav0ExxEcE4fGLhzf46v3bjZDOlutegM4+nhkgoVwXEMvPTmu+th78+O1ezeIoUU/AvSJlPBMfqSHozw9wjdQnl+iUQyZF/ofERb/y7/Cy6fD8Oy1F09HtEEMpfPH/Wn86bNGMRypg/NGyKkf9+HsXvCMYSN8GpUxJCpIAKNLJBdXk3vgclUwbIQMC4b29MpQfBCzjm6gDEHfXHn6zI87uXAbNLKbJMN8HP7ot51p0ebI8FcZ/vsy/FcZWi3DKvEfYvhjbUHb0jKsEj/fS1uGVeOXGTbJp/nRb7uRMvzJtuQ+TbNi/Jbh9wDcVMawGTMzLcOvccwflhf+KYZdOtvkCA/Xmhk9PdwWtnx3Xc7506ssLx0Y/hMytNh0nKUP9eqQ6Pm3ZChAhlkK8f31H2VodWMnR3S4wT/G0Mpzjafv/g/l2hqlaVqG30Eze+nPe97/jqb5iP8EQ9UyrAwtw4fwnxiHDbSH/wUZPlqT7cUFDlcalom6OY9/B9iUG0RwGR82hmEhQ/tBhoJN7esRMG2G1zZ7T/68SOfP6M+jNecQAWPN+jjpXWQxGpKJErPZzLM8eIyvFcHeARoWCxpePsqwCQwPeLglgjKaLUs51nA2qpda4lh5+aAQP6JRmkbQeBMW8H7qpvUzPBNWWFZevkdXn38Ah5x3E2QIimJUVFba0f9Mrbxn/Vl9dqytzxhq25wx9CJ5/Y33oU6GAv+xePHHL/UKMtTP/VdzZCjk4H0q2OMSrdkvZWKqtR6eMrTXcq5PZOgRY6cd9vhkVJ2xBWWblBulknIBQcZwIBdHhkLOA6UMf5096ovXKENBZz2usXabEJEL7IxhfmU2zoq7NV9Ej7WvPoZA8K8GdoEiyl7KjOJHhmwF34Gy8XX6MRNZ5zikK21I6s84MTwn9IEh3STwBXgvAVF8eUc/vbbepsaMMGpwoh25CECBZs2/HIdCpIbwteyMiUnvEmG+akbKS7+0Jk0j97YKejSGjjgK8dMvGbJBoszW8kCOdwXFgg0mW8Rk8XF2rRaLD5aAjDZyYBPgYR2sBTAcZ700hkGahHJqK927q3VFjK9178oMaR2xhVwnSk+ElRLjriV0Md9VwTJ+BoYxWEC2CAj03ygwivt3MsT1eVrblxFwXRZf0IlW9k5uRsooT8wGPYOGQcPD89qhsxGB7irftAoW4NXc4dbQdW+F6M1rneU++RzolsToWL5qpYfpkw3mI1v0RMA7TbZbg3YkdIkJjrkziCGF6F65bX7DUtMcr1Sf86YddKULgcgVCPFNOjDgjEFqWScDKwJWUGuQLKVbrfiuFAk4siG4sZ8yvPJxJcPqNE08Gi3F4bMisObjfi9nxxP1upjv529DndiZu6MXO1uZ9KD8Zbx4mtDuIwwrkyEMK2KnL2Wegi1tAv4KiNA2z53IylaHSiacdS8A8kqDdEcbbJoAYyB2QaD4+js+auXjkPoj7ILJq4/aDgaVN8nkxydrD9iJaBaGoRPjCvxoiu4akMyTn4LSzgQvEHJ1LfNnH1g5w6EG3QI9crSIMeqjsxQaHai1J1m8fk6hp7ou15NFx5PSm9qgV82rh02Ts56LyV6l7Pk3hFg1Q/qSEDIZupkrvROM+gbGG38Dfv4z5+iKqyza0K6eO4w5Q+jEeuJBpDx3gRxxVwYcHOf+iLjqTBQ4YIRv5IvhmKpIN44GgmDtpdNL0FQYHQTjINDQc0ngLjxmzRPQNxNvYMD7Nu4klEtwY3v3C7Fihgw8UaX3nrSmCepKbhvos6FkuySLpBK1Wu7Wu30PdGlGdyPZGqRuAhs426RPZfQMfdy9f2Kj4oywtx0ZBVpzbUFLR0gKCPpMrDjIj6ulQyVjmLS2/IWGyIMke8n6CboAYEvmnvT2MDIJeXq+u7EVZ/WpWBPsbRx6mwyHKEY7lN4wAGVDBmANyvwTOCfxHoyI4gvKBi5oVLNypNUHnQS9e7K5v60VM8Tc2hz1iXafI+nAH+5AitcAosDnmKLJK1UIxk6zLRhDd87oGxxTS/pDjlpYD8TnTRV5Cu+IUpeOq4stGGh9GH1BMIWGg61jb6AuR8srn069Z55/B9Ax7eXCxa8GrMynDe12i93CZLGDCzg/2QisliGldJOiZQvAMgYRDjOSDD5mfbGN9G0MzsCMbaCfanR83KF/Iz/cpZv9ErFf52TOGFZk8UUeHexsCPqyFBRG+MnyWrMF+mk9cL8nlIKDjrooRR0qPjeGdJkECF7EhwVD7KW84vhQxm+ZmhFZlmZ49aORRzcGZmAvfY7uzFRc3T/oCJrPcpeOXs5wTMbVM0RdCZZ7vJcRNyS4uitQJquu7HDQnhaDCBI8BfHFXBSdBtnMzlWGVWcxoM0wwuQ8IPb+1tQLfTUq6cgXG3TNFxIEHHYKO74fx+FLHVmM2MYBZqGWjG8IRrAwIXolY5O9/PvIxmFVDE93aZR+ooIlPGKu6XbXmxj4EmRPk1F8eoc7m1slQ285PWK30iTZyGlAxl98MNsHhOcpxcXJDaaDO8OLgmEV9jD+m9W62GMEupc8QskE0e23UTCGmI8DkxgEtp1ZAzjakzurGQ4Mf1+G8Yicbw2kPJkSk36VV4pdot+k45L8zcX+Qp+YmI84eG0VMEyM0oe9fyCqmAiWGP1Kv2DoGQMBYczBJT1sHEQ+M6LnOLEW1TAEpejMcsA3a4ZUvGMJ2hcMRWqADvg+x3fP0vtkWAPD53I3Nckzhk+kmHa6AZHiS4GhKd/NaPoNGVbnl2IvVZMSBmdj6BNmJL6SIQT7ryzGNNvh3d/ppbnFr0iGMPjgHwA1hkk9Bl1v8kV+t+u5KHsnUeZESaFYv/7IyhmaE6A6jNF1I19NfYJvoPcy5PilHHFdhuLiaFXbS9PJCVJwN310S5Pw1gcLi+1sNerIAQehn96gd+3FHyv/Ko0PxQkoxAz2QHZcFdx0vNH1Bn8tks9aJQ4t3259EmQ4RenfcboRGY6rjfHLD4bR1ZOgP0jq3fRLHa70hHopdNKvbiqylc6Ap/NVspXG+EekBgYizq6Bx3HjZXKuUdhhpm6+uKVgGB+eRMBWnQwhAib2WkJsBH7bjdc5tlLvsVzANxF+FR9+ttK5aoaZdWAbtIgppUMQ0VyWK3gvWpyNQhXMs2yO7s3k7ThLWFHpMh0yUbgPesXZRCQjnd4TmjUI3n0XDht23SgKOR1n0+BzzL9ovohvdlRR7hpR6qGTHXgq7aXMm+MMr0YhCjbHuqGZ/MgQGikx1eiuZQSvxYkb2wy+SkYd3ouohaGg1loFYPD5cEvIeCq9CXicxJeXDcdcYh/3oV9RDCNNL8XyNr7d0C/SUScoPO9KGVIWbtF7C8yA+tBk15cOCtNes48R7RJeqbceW2N1W+ztuTbKJCvn7omnGhjK6DkxoM2TeSy9KWbp05jNOIp05WQ1InnZDKYb/W0ABNMYkznAsC+ls3oyOBz3HrunuuYsI1wRQ7HkWFeSgFZkL2qMae9gKNgMC0sCd+Ezlu8sw5gIewlIbLyNWZTNwhF360sWTrAD2GZ9X2NryOr3cPJhsmFyNhyhLGFA2kMh41eOE6SjdN73ncgJ1ws1wlcmC4s5EFMYLLXVyXMkYRCrO0sxrVoYwscp7st4kfXV0WKN2yJPImYNsEQfAkGeA4amMjzdSBkSJNfpuSDwIJgKucYCm9uO3gGVz1sInOYmejXAKhmcR2JyMIL2646U8T4TVBn+gcTSnZB0h0FTEjLaSXGVwjjtp+T+Se7q5y2E5aHXiOabpy8WFVQOcNY6eYuA47qni2wh52q1EZLNhth7yQZ3lBdTHcCJDZaxZ91pME4YupX4NDixu+ZZ8OsuBcpBdBnOdavA3gNH6fn96X6+33VmngR+by5Oqul55qwJGb1h3wYR3leKmaOGeYsJIeZpFck8xqMdnPxE2dirTSyPiNbDrFwDONpOWSLmD7lRenGXW1Og0nkLhKD+e7IN85IvK0sVEv0WYP2MTvh2MeiEftjZLdLERnmZdIXlMwePm/YV598p+qqeIQhisT6WmLIpB6+FzXDaDxSJCewsgh1jwUa2j74Xw8PTMdHBvP3ge4tLKpy3KHGyXZyFMX7iy30AEQSWDx1gdICFFzxP0ExO3v7dBUIVzluUOJmHx+yLfmMOuGWB7++32YQEGg2T9nbOGgKrVIitJhx8mG/UlJ6hBoYHwJh8wmVqmMoI5sxicgPW8rn/qkG54E+SgJrlU4mrSkxsfadstkTFWf2PwAAfKIRPyhisksGyb1y7FgBtUJ8UXG5jx6wH53P5ndLnEnUzZH2glgqwH2Xdb5iQ8TpfUYKtYW86m1gDIY4e+uG7wmurjaGXGtwmYjAGdVqu7EIZLoJy3VME5s9FRYRLSh5YZFlxVv8SWOINIsQ1P0XeGxmOM4b5mhncBULpITqVj+n6Whl2LSdBC7hd4cQgK2TokvHZ6rzcIchSoOrx1Xn15Eu7lrcDV5pgFfSoSP4hQ1zZFRzWkKJTl+eg0v5jS4HrG4f4C3jxW5ItoCxnLkqGh9V5eb4UVwotvQebV0NtYoG8psvfgkEwZf8rNc2hl6LFgDGYPMfy/gTbOerrpZhKAj1AX9TffplJBBnma9eUfShBkYu/W18+vk9GjQytPGFLvYEQB4ajwms7MrTitfW/7B1R49zTsQ3lH4KGvPhBrnF05fnvA77Cbh1Z/c8R/s1LnoKnn9kXo655i09BZ4t5gW9FuZ+icQxPyhd/5nZ1zFtUi8YxzGsQxH1zEveg+nmL23DURHUkPn5jTcxN1LEa4RYcVycvEA3qn/wVloYxzPfc+7kVSjWut7iKk30Tf5JhLestruNXftGqjJ6qX29xBUeGG/lziIIG7l9qhr2fw6upOqt/B0OlfxKkcQyftMYNWA4wn57lhabHP0+eO5zh/6SunPcnDLfDn8Z20ySGDLxv3DfiZAFRvpHE8exw7eyJ86tnz0lqNYjhZb6CQky1HnTiMtMBBkBQxuLwZTAY9MOIMgoX8oy/EFSEg0F4GTR3u90mM4xeE24nwYAeivFYtJyMOOe2zUdcLXxWztoIFqaJbT+l4XmBX7MZxmm+a10yLRZNWmJvY+GfMtkWE0a7q7iQIdtgTYpR2j6vHW80Q/ZsE2LrgJhkViSkerhiNnDHgdZjF7kGaZERwIkQrQOtLopyG80wxrmNWTwN8jpbLOYYgYGbLEMnjuMo3GHtQlBs97ZxSbCKopVW7pkQm8yQ+ujDgX4dav2aTW7AX0ptrLzKz6KUzeBCkr2YTUHUnmVFmti70zwIMmyO533BMORY323JodHDrNFsiFsRHra6YjLuaXNkSDxqxdpcMrQayxD3kTLbyFrb2Y5mFtLAsuHhGvf8Fp7TWY2xSCqfnHtxlV543gKXp573UqtBscWlplllexJlJRtZA7tii5vy2Dyfsck22dDF3JVnDAnAV8Pd305v0uRxCOYQXGdosRkVWyd1qbcYBVmxDcmqU/RoGJXWov+UWQsz2vz/sRbg0WwTO+B8XzQPLb6/SF0Xa/xszs1qYx3qNGjfuEGQmE5jLb76yNCiYjNdDpzSa8s2BGFi1hksl8td3/fyCqJiORSL+8vli0fLtVGHx6ZET5inoZfIve2Liwfn+vLF8sqL4XIz9tXHxV7zl/4lPl7Jr730X7JD+Zgd81eXZ8U1wEA3RIYk4HfBzf7jL3JioR/PD+7x6fLscA0sZSMYkt9EE3rpu42bJWSV0IfHG2fB9/BeP0PhlIii8uHmWXQfyrfdWeD/qzh+yXkRavnjxYfHs7NamtiiRYsWLVq0aNGiRYsWLVq0aNGiRYsWLVr8C/g/oujL9AqTQ6kAAAAASUVORK5CYII=" style="width: 100%;">
+            <div class="espaco">
+            <h4>Desenvolvimento Mobile</h4>
+            <p>Aprenda a desenvolver apps com Android e Java e crie aplicações idênticas a famosas.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Csharp_Logo.png" style="width: 100%;">
+            <div class="espaco">
+            <h4>C#</h4>
+            <p>Aprenda C# do básico ao avançado, contendo introdução a orientação objeto.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="https://3.bp.blogspot.com/-TTCi1PXAAlw/VxubLXTuUfI/AAAAAAAAAqY/XHj5qGvgnw4ozRyEcqsbQjfwf-vbPFdXwCKgB/s200/logica.png" style="width: 100%;">
+            <div class="espaco">
+            <h4>Lógica de programação</h4>
+            <p>Aprenda a dominar a organização de seus projetos e executá-los da melhor forma.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+    </fieldset>
+
+    <br>
+
+    <p id="feedback">FEEDBACK DE USUÁRIOS:</p>
+    <div class="feedbacks">
+        <img src="Imagens/iconUser.jpg">
+        <p><b>Usuário João</b></p>
+        <p>Ótimos cursos! Todos muito didáticos e carregados de conteúdo.</p>
+    </div>
+
+    <div class="feedbacks">
+        <img src="Imagens/iconUser.jpg">
+        <p><b>Usuária Caroline</b></p>
+        <p>Gostei muito da forma do professor passar o conteúdo, aprendi muito!</p>
+    </div>
+
+    <div class="feedbacks">
+        <img src="Imagens/iconUser.jpg">
+        <p><b>Usuário César</b></p>
+        <p>Achei os cursos bons, consegui aprender algumas coisas, mas esperava mais.</p>
+    </div>
+    
+    <hr id="divisao3">
+
+    <p class="todosC">Todos os cursos de programação</p>
+    <br>
+    <p id="filtroPes"><b>Filtros de pesquisa</b></p>
+    <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')">Mostrar tudo</button>
+        <button class="btn" onclick="filterSelection('cars')">Web</button>
+        <button class="btn" onclick="filterSelection('animals')">Python</button>
+        <button class="btn" onclick="filterSelection('fruits')">C#</button>
+        <button class="btn" onclick="filterSelection('colors')">Lógica</button>
+    </div>
+
+    <br>
+      
+    <!--Os elementos que podem ser escolhidos-->
+    <a href="assistir.html">
+        <div class="filterDiv colors">
+            Comandos e variáveis
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv cars">
+        Desenvolvimento Web - Tudo sobre HTML.
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv cars">
+            Introdução a PHP
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv colors">
+            Introdução a Orientação Objeto
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv cars">
+            JavaScript avançado
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv colors">
+            Lógica de programação para iniciantes
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv animals">
+            Python #1
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv animals">
+            Python para análise de dados</a>
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            C# avançado
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            Projetos em C#
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            C# - Uso de Webforms
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            Criando uma API com C#
+        </div>
+    </a>
+
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+        }
+
+        function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+            }
+        }
+        }
+
+        function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+        }
+
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+        }
+    </script>
+
+    <div class="socialmedia">
+        <img src="Imagens/facebook.png">
+        <img src="Imagens/instagram.png">
+        <img src="Imagens/twitter.png">
+    </div>
+  
+    <footer class="rodapé1">
+        <p>Todos os direitos reservados &copy;<br>2022 </p>
+    </footer>
+</body>
+</html>

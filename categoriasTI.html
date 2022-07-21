@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!--Fonte garantia-->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Khand&family=Titillium+Web:wght@300&display=swap');
+    </style>
+    <!--Bootstrap CSS-->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"  crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>-->
+    <!--Estilo filtro-->
+    <style>
+    .filterDiv {
+        float: left;
+        background-color: #f5f5f5;
+        width: 300px;
+        height: 200px;
+        font-size: 20px;
+        text-align: center;
+        margin: 2px;
+        margin-left: 13px;
+        display: none; /* Permite selecionar um elemento */
+    }
+    a {
+        text-decoration: none;
+        color: #000000;
+    }    
+    .show {
+        display: block;
+    } 
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+        width: 8%;
+        margin-left: 3%;
+    }     
+    .btn:hover {
+        background-color: #ddd;
+    }
+    .btn.active {
+        background-color: #666;
+        color: white;
+        
+    }
+    </style>
+    <title>Cursos - KA.NEXT</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="imglogo" src="Imagens/Turbo.png" alt="KA.NEXT"></a>
+        <a href="cadastro.html"><button class="btncadastro"><b>CADASTRE-SE</b></button></a>
+        <a href="login.php"><button class="btncadastro"><b>ENTRAR</b></button></a>
+    </header>
+    
+    <div class="links">                 
+        <a href="index.html">Menu</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="quemsomos.html">Quem somos</a>
+        <a href="suporte.html">Suporte</a>
+    </div>
+
+    <p id="cat">Cursos de TI e software</p>
+
+    <fieldset>
+    <legend><b>Cursos em alta para você!</b></legend>
+        <div class="cartao2">
+            <img src="https://images.vexels.com/media/users/3/140692/isolated/lists/72d1f12edf758d24f5b6db73bac4f297-logotipo-do-linux.png" style="width: 100%;">
+            <div class="espaco">
+            <h4>Tudo sobre Linux</h4>
+            <p>Domine o sistema operacional aprendendo sobre terminal, conceitos básicos e configurações avançadas.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISERISEhIVFRUWFRcWFRcYFxYVGRYXFRgWFhUXFRYYHSggGB0mHRUWITEhJSkrLi4uGB8zODMsNygtLi0BCgoKDg0OGhAQGy8mHyYtKy0tLS0tLS0uLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSstLS0tLS0tLi0tLS0tLf/AABEIANUA7QMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABQYEBwECAwj/xABPEAABAwICBQcEDQgJBQEAAAABAAIDBBEFEgYTITFRByJBYXGBoTJykbEUIzNCUmJzgpKissHRCBUkU2PC4fAlQ0Rkk6Ozw9I0NXTT8Rb/xAAbAQEAAgMBAQAAAAAAAAAAAAAAAgQBAwUGB//EADURAAICAQEECAQFBAMAAAAAAAABAhEDBBIhMUEFUWFxkbHB8BOBodEUIjJC8VKSwuEVQ1P/2gAMAwEAAhEDEQA/AN4oiIAiIgCIiAIiIAiLDkrogbGVgPSC9oI7QSspXwMNpK2ZiLAqsVhjaHPkaGncRd1+zLe68XY9TiPWB927txvfhbffqUljm1aT8DTLU4YNqU4prfxV13Eqips2nAvzIbjiXWPoAPrWXh2mETyGytMRPXmHfsBHostr0mZK9kqw6W0c57CyL5ppeLSRZ0XUbdoXZVzohERAEREAREQBERAEREAREQBERAEREAREQBERAF0kdYEo94G82VexjSWBvMaS9w35RsHaTsWzHjlN1FWVtVqseCDlKST5Edpbiz22ja4guF3EdDdwA7dvoVPCzMWrddKXgEAgAA9QWGu9p8fw4Jc+Z4HW5vj5nJu+ruO1+joXF1wi3lY5RcLlYMUXLQnFf7O89BLO7a4fzwPUrktTYZVaqWOTbzSCbdO3aO8XCvNNpbTPdYlzetwFvS0m3euPrNNL4m1Bbnxrr97z2HQ3SWP4Cx5ppNOlbq1W7j1cO6iwIujHggEG4O0EbQQekLuueehCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAukjrAld1i1x2ALMVbo15p7EHIqulmKuaBG02c4XceA3W7/uVPUhpDIXVMp4Gw7gAo4r0OnxqGNJHz7XZpZc0m+TaC4XCLcVQiLhAcpdcLlAdrrkLouQVkwW/QrFiH+x3Hmm5Z1EXJ7iL9461d1qjBXls8JHQ5vrF1tdcTX41HJa5+Z7XoHPLJpnGX7XS7qteHBdgREVE7YREQBERAEREAREQBERAEREAREQBYle3m34H1/yFlro5twQVmLp2a8sNuDj1msNJIi2of8AGsR3jb4gqKV40owcvbcDnN8k8R0tvxVHe0gkEWI3gr0GmyKeNHz/AFuCWLNJS3b7CLhFYKtHK6oiwLOVwuEus0xaO10uuuZe1LA+R2Vjcx4AXPgsPcrYj+Z0t77N5JaN05fUxNHQbnsbtPqt3raSrui+B+x2l77axwsbbco32v0nj2DhdWJcLWZllyfl4L377j3PQ+jlptPU/wBUnbXVyS792/vCIiqHVCIujngC5NhxKA7oujHg7iD2G67oAiIgCIiAIiIAiIgCIiAIiIDqQDsKja7AqeXa+IE8QSD4FSiKUZOLtOiE8UMiqcU12pPzK8ND6T4B+kV6DROj/U3+fJ/yU6in8fL/AFPxZX/AaX/yj/avsQEejtIJC3U+8B2ueelwO89i824XB7Hhfqm3dqbnffO5gdv43KmLe3X/AGfqd/FYwZ+jQDgYPB8afEm/3PlzZn8PiSdQiuPJfY4ZhkGtcNTHYMZYZR0mS53dQ9Cym4fCN0UY+a38F2Z7s/5OP7UiyVrcn1lhQiuXkeAp2DcxvoC9WtA3Cy7IsUSW4Ii+aeUDTrE/zjVMiqJooo5nxMbGS1tonFl7gbSS0m548EB9LIvkel00rnutLVTuBB3yydAv8LqSpx6R3lOe/wA5xPrupKN8CLlR9cKkcsjh+aZwdxfAP86M/cvnIY1Iw3aAPNJafSFcafHJpcLq4ZJHvZrKRzM7i4tJm5wBO2xsNm7Z1lZcGmZuzMOhtN0awdhb+CyGaPZfIqqlvZJb1WU4Gr0DV6aWlwP9qPni6V1a/wCx/T7EI3D6tvk4jVC2722X/wBimWYXibfJxSU+cXn1krtlVlhbdoP87lUz6TDGqj5nU0HSmqybSlO6rlHt7CtZMbb5OItPaGH1wlcTYtjkLHvfVRva1pceZDuAubWjbdWjIorSrZR1J/Yu8Rb71UlpsdN0dOGtz7STa8O055LtM6uuqamGoLHMijY5rmsyHM4nYbGx2epbMWleQFt6rE3cG049Ik/4rdS5rO6ERaPrOVDFnVdXT08FLaCaSO7mvuA17mNuTKATzegdyzGMpOoq2RnOMFtSdLtN4ItCz6ZaQP3TUsXmsabfSa5Y5xnHX+XiYHmRxj1MarC0Wf8ApZUfSOlX70fQSL5zfFiLzeTF6s9TXvYPQH28F3//ACWub7dWVclxYh0tx2WcCpfgM64qvmjX/wArpm6jK/k/sfQc1QxnlPa3tcB61G1GlFBH5dbTM86eIety0hHoFRDeJHdrz91l5YzonSR007o4gHNie5pzPcQWgnZc9SfgslW6MrpLC2lT+n3PooG67KL0YqdbRUkv6ynhf9KNrvvUoqZ0DFcfbmjix3g5n4rFa72iPz4h/msCyX+7s+Tk+1EsV49oYOEkXhMxTXL5eprfP5+hls92f8mz7Uiylis92f8AJs+1IspQJoIiIZC+YtJR+m1mz+1VH+s9fTq+bq/D5KjEqmGK2d9VUAXNhskkcbnsBU4cSE2krZXKwDI7sPqUIVYMRjLRI1ws5uZpHAg2I9IVfK3o1sxqhXPCP+jmHGWhaO+R5+4ql1CuWF/9Nb++4ePT7L/Ba6uRmTqD7mbUjgXqIFkQMWSI13Xl3nilp1RH+x1M0rOY3u8Fj6pZ1K3mj+elas07SLWkwqM33ep1yKB06OXD6k/FA9L2j71ZcqrHKWbYbP1mIf5rFVlL8rOjix/nj3rzI38nuLbiT+L4G/RbIf3gtxLU35PTP0atdxqrfRY3/ktsrls9AgvnXEY9Vj+Jx/CvJ3v1b/8AcK+iloTTyHVaSE/r4Gn0R5f9lWNJLZzwfaU+kI7WlyLsb8N/oemVc5V76tNUvSbR4feeGVSOGbWkcD6//ixtSsvD22d2j+KhkdxN+nTWReBlZF41dPnjez4TXN9IIWblQNVSzq7Nbyz8llTrMIoHcIQz/DJj/dVrVE5G5B+bjEP6ipqIiOFpC+3VsePSrnUVUbBd72sHxiG+tcE9PfM85D7fGP2cvg6H8Vjs9wHVL6p/4LvFIJJBIw3axjm36HF7mHmnptk37ud1G3g8gNfC5zWuLnFmY2BzOL2kcbEgHsPUprl76zW2uPf6fYzW+7O+TZ9qRZaiZKoZg8Wa+2UskuwO6QA+xBIN9rbg3PUVkkTH30bfmuf45m+pRaJKXUZqLC9jyHfM4ea1gH1mu9aex5BumefObGR3hrWnxSjN9nl9zNXzHjlU5lfVPY4tc2qnLXNJBB1r9oI3L6PLpx71j+JBcw9zSCD9IL5Z0hxForasOu0ipnuDtsda/ZcKUdxh791HniEpLHkm5sSTxJ4qDzngs+qqWujcGuB2KKbMQp2YoTHqVwwqwhYSbAYhh9ydgAy1m0noVcgnvvC2zyNaPU9dBXsqomyxZ4LA5hZ7WzXLXNIINpN4PSo3W8SjcXEuFG8OFwQRxBuPBZrQo+o5HMOvmp31NK7jFMfHOHHxWJLye4nCP0XFi+25tRHm7jJd3pyq2tYnxRy5dFyX6ZeK/kncqy6YbO9aqx/S/EsMqBTVbKaV2Rr7x57Fri4DnbLG7T71SmF8pZ1Wtkw+pEdz7ZG0vZcbDznNa3Z2qTzwkjXHRZYSuvqbGsqfyrm2HP65Yx9a/wBy7UHKZhsthriw8Hsds7S248VGcqmKwy0EWqka/POwixBu3JIc1t9tg29ajKVrcbseOSyRtcyT/J7Z/R9SeNbJ4Rw/xW0lrnkFjthV/hVEzvEN/dWxlQOsFpLlii1eM4ZP8Ngi+jI4f73qW7Vp78oGPKcLqOiOd4Pfqnj/AEypQezJPqaIZIbcHHrTRxql21a4qq2KO+sljZ5zmt9ZUXUaW0Me+oYfNu/7IK78sqjxZ4/Hp5T/AExfh9iU1S5YLEHgVVanlDo2+S2V/Y1oH1iD4KLqeUr9XT97n/cG/etMtXjXGRah0dne9Q8aXqbQsi1DUcpVYdjWwsHRZhJ+s4jwXlHiuM1Pufsl4P6uItH0mNCqPVQ5HTjocj40jc3JXSRl2KRvaHZa10ljci0zGO8k7Og7bLYcFFEzyI2N81rR6gtS8i9FWUTq19dFM0Tamz3XkN49YDmDSXDY5u0joW3KeoZIMzHtcOLSCPBUZO2dOEFFI9l1c0EWIuF2RRJmEcPZ70FnmktHe3yT3grEdhbm7Y3Dj0xEn4zorNPewqYRSU2iDxxfIh9bOzfmI6SWCQHqaYsru8tK7wYpc2yAkbwx4eW+cw5XjsyqVXhUU7Hiz2NcPjAH1pafFGNmS4P377DxZiMRIGcBx3NcCxx7GuAJWtdNeRmKsqJKmnqNQ+Rxe9hZnY558pwIILbnad+0lbGkw5tiGuc0HeL529mV4cAOoWWGcNkZ5FurI50Fvmc6Nx7QFmovmNqS4rw92fOWlvJtWYczWzuifG52QPjc4gEgkZszRl2NPfsWPo3o7RSjNVV4g3nVtie5xA3ASkZLnoAvvX0qauWPyybftWb+2WG7Gjtaqvpbg1DJSVU5oYtYyGV4mhLDZ7WOc0ufGWvIBAPObbipbDSMLIm65+/e8qWjWB6Pi3PD3cakuHgQI1sfAsPhgYRR5I2OdnOqy5XOIALrC7dwAv1LVztFoHNYRnYSxp5hB224PusI6MTxHNBOAeJc6J30m3VuWhyrgr7vdnKxdOaOe5ycX2r+UbvqZ6nIRE+IP6C+NzwPODZGfcqRjjdI7nVz0zm8IgIXH/Fa63c9VWn0gxin2XklA6MuuvbpJF3+IUjR8rb2nLUUzSRvLHFhHzHZtveqsscoumqOpjywyK4ST7mn5Gv9MMHxZ8xmqqepccobmIMwAbc2zx3AG0qZ0M0yraGFsTJGFoLnGN7GkAuNztFnA962TRcp2HvbcukjdwczMT2avMqnpZym07wWMoGSnbZ9S1oHa1gu495aVFInZPUGnWGVpDMRpIWuPv3sbLH3uLczPEDirBVcmuFTtBbE5rTzmmKaQM2jYWMzFm7gFo/DMFr8Rc59NSktcdjmN1UDejY95sQLbQCSvpLR3Bo6Omipor5GA2uS43e4vcbn4ziouk9xJHTRnAIaCmZTQZsjC4guOZxLnFxLiAOPBS6IomQtXflC0hfhcbwPc6mNx7HNkZ3bXNW0Vj1tJHNG6KVoex4s5p3EID5K0U0NqcQLhTuhDmna18ga62znBgu4t27wOKu9DyGVBtrauNp6QxjpPQSW+pWrSrkjLpm1FFM5huS5v9YDbmujfmaCQbbCWk3JLyQAqjV8ouK0bnUc0gD2EjPLCRI4e9N3gXHWRfrKykYbLNQ8h9G0gyTTydQLGA9waT4qdpuTLCafnOgYeuV7nD0PdbwWoq3TTEJbh9ZLt6GkR+EYChp5HvOZ7nuPFxJPpeVOiNn0ZRUWHwi0EUQ+RhzeMbSs51WfeQSHhfVsv3OdcehaX0f0lxoxiOn1s7T5LjE6ct7H5T9YlS7dHtJKr3SWWMHpdLHAPoxEn6qjYos1ZpxVRvdG7D3QW8kyuzB3W0s5p7nKAxLTOUnM6SGJ3wmARusOjMSXW6r2XrR8jNS/bU1rQT5WUSTX+c4sv3hT+HcjdBHtkfNKekZmxt+o0O+ssNkiCoeVx8RAktUN4hpa76bRl8O9bO0Xx2OvpmVMbXNa8uGV+XMCxxYb5SRvaelYVFoJhsNi2jiNumQGU9t5CVIfnSlj5jZI7j3jOcR8xgJ8ESb4BuuJKoor85ud7nTzu63BsQHaJXNd6GlRWldVVtoqmSzYcsTiCyRzpBYbCHZWhpv2pssxtrl5evAtSiq/SOig92q4IzwfKxp9BN185uw+rqmh09S6RrgHWklll37RzXGwXfE9EGw0s0usJLWFwDWho79pVhaPLs7TW4rPX6fa2VK3dc+4+jHY1T3IErXuG9rLyOHzGXPgseqxwNF9U8N+HIWQNHbrHB31V711AZIWxseY7ZTzbgED3pyFpynpsQsWlphASfYjAel8IaSesggPv2ZlqST3+/T6G6UpJ0+HXX8/WjwGMzye5hnzGS1AI6nkRMB+cVB6Y0crqKrmex5LKac3kfFGQNU8HKIGuLth8lz7HpVzpsQjecrXguG9pu1w7WusR6FF8oP/AGvEP/Fm/wBNyXsukqCipK278vVFNZSENb5rfUvJ0RHQp/2PsHYF4vp1345z5/k0PNEZh49tZ2+sEKWrcOilFpYmSD4zQ71rxip7PBtu/FTBjWrPNOSL/R+KUIST6/fkUuv5P6KS5ax0R4scbfRdceCxtBcAijxCelkAmjYYTaRoIJMcsou03Gwtae4K9GNV7Q1t8YrzwkgHoppfxXP1Cjsbjv6GeR5NmTdUWrTanrn0urw8sY8kBzi7I5sdjcRbLBxNhe4sL222IxtBdGXUtLFr3yuqSM8zjNI/nu2lti4tIAs3dttfrVtRUbOuEREAREQBQ+kGjlLXR6uqhbIPek7HNPFjxtb3FTCICj0HJZhkdrxySW+HI/xDMoPeFYsP0co4PcaWFh4iNgd9K1ypZEAREQBRuLxTOYBC7KbgusQHObtu1riCGk7NtuO0b1JIsp0zElaor0NLSOcGSMdrL7G1BdIb/EMjnNd80lTsUTWizQGjgAAPQF0qIGPaWva1zTvBAI9CwfYEkfuElh8CS729zvKb6SOpStS5+PD37s1JOHLw3Pw4fO9/USqgtOR/R1Z8i/1L3GLhpyzsMJ4nnRnskGwfOyrw0zIOHVZB2GF9j3LDi1xNkMkZcP8AfzXI05gkf6PB8lH9kLP0rj/o6oP7H8F20bp70lMf2Mf2QsjTGO2G1PyX3hd7NkvEl2eh5LS42tQ2+v8AyNys3DsXZdWbh2LsvPnrzGqqSOUWkYHjozAG3Zfcqvpzh5Zh1Zq5XhuoeCwnO0gixAL7ubs4G3UrioTTKhknoKqGFuaR8TmsFwLnoF3bB3qSk0QcE99b/r4mEY14uiWuW6d4hRuEdfTE7bXc0wuPEtcBkf8ANHerNhOn1DPYGTUu+DNzB9O5b4q/HKjgZdHOPFeBOGJSJYsdtnAEEEHcRtB7CFmtGwLM5cCGCFWY5Yq5oG2+JYkf2wB+ZGG/vK15VWOTnbW4mf71OPo6kLRmdxOno41kfcbDREVQ6QREQBERAEREAREQBERAEREAREQHRzAQQRcHeDtuqtpfhbGUVU6MuYNU8uYDzHXHwTsHaLblbFg4xQCoglgc4tEjS0kWuAeF9iym1wIuKbTa4Gm9DsS1sNLDFDM86tsbpCzJC17WXcDKd9rHyQVDaY6TSGGaltTgl74Cxsj5ZSWuLbtaGBoBLdlzfaNnDZ+D8k+GQFjiyWV7DdrpJX7DxDY8rfBWzDsGpqcWgp4ovMY1l+0gbVvlqZtUVoaLFF7Vb+1/Pu4meNy5RFXLYREQHjU07JGlkjGvadha4BzT2g7CqXiPJfRueJabNSyi5BYGyR3IIs6CUOYW2O4WV6RE6FGq8e0er4GQmmh9yhLC+jeyHO+4LXy0j2ZHN2eS0k842PQoDDuVCpgdqq2muRv2GGUDiWOFj9VbzWBimEwVLclRDHKOgPaHW7CdoPWFOM2jVPDGW9oqODad0FTYNmEbz7yX2s34Ak5XHsJXhyXbZcQf0OrKo/Wit6liY3yOUz7upZnwH4Dvbo+65Dx2lx7FNcm2jE9BFJFPkJzOLXMcS1wdbcCARsaN49KlKakiGPAoSsuqIi1FgIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiID//2Q==" style="width: 100%;">
+            <div class="espaco">
+            <h4>Rede de computadores</h4>
+            <p>Aprenda as diferenças sobre as vastas redes de computadores e como elas afetam na transferência de dados em ambientes diferentes.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuLHM3WuRPbMwSGYc_HeLlud1lKWWYXOLo5g&usqp=CAU" style="width: 95%;">
+            <div class="espaco">
+            <h4>Introdução a hardwares</h4>
+            <p>Básico ao avançado sobre hardwares e suas respectivas funcionalidades. Para iniciantes.</p>
+            <br><br>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="http://flavioasp.files.wordpress.com/2012/04/curso6.png" style="width: 100%;">
+            <div class="espaco">
+            <h4>Sobre sistemas operacionais</h4>
+            <p>Aprenda sobre os softwares que possibilitam administrar e gerenciar os recursos de seu PC.</p>
+            <br><br><br><br>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+
+        <div class="cartao2">
+            <img src="data:image/jpeg;base64,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" style="width: 100%;">
+            <div class="espaco">
+            <h4>Básico sobre informática</h4>
+            <p>Conheça o básico sobre a informática e suas ramificações como ela está complemente inserida na sociedade atual.</p>
+            <a href="assistir.html" target="_blank"><input type="button" class="btnCatgor" value="Acessar curso >>"></a>
+            </div>
+        </div>
+    </fieldset>
+
+    <br>
+
+    <p id="feedback">FEEDBACK DE USUÁRIOS:</p>
+    <div class="feedbacks">
+        <img src="Imagens/iconUser.jpg">
+        <p><b>Usuário João</b></p>
+        <p>Ótimos cursos! Aprendi sobre Linux e estou muito satisfeito.</p>
+    </div>
+
+    <div class="feedbacks">
+        <img src="Imagens/iconUser.jpg">
+        <p><b>Usuária Caroline</b></p>
+        <p>Gostei muito do curso sobre informática básica, me instigou a buscar por mais conteúdo!</p>
+    </div>
+
+    <div class="feedbacks">
+        <img src="Imagens/iconUser.jpg">
+        <p><b>Usuário César</b></p>
+        <p>Gostei de grande maioria dos cursos, mas alguns me decepcionaram um pouco.</p>
+    </div>
+    
+    <hr id="divisao3">
+
+    <p class="todosC">Todos os cursos de TI e software</p>
+    <br>
+    <p id="filtroPes"><b>Filtros de pesquisa</b></p>
+    <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')">Mostrar tudo</button>
+        <button class="btn" onclick="filterSelection('cars')">Hardware</button>
+        <button class="btn" onclick="filterSelection('animals')">Sistemas operacionais</button>
+        <button class="btn" onclick="filterSelection('fruits')">Rede de computadores</button>
+        <button class="btn" onclick="filterSelection('colors')">Segurança</button>
+    </div>
+
+    <br>
+      
+    <!--Os elementos que podem ser escolhidos-->
+    <a href="assistir.html">
+        <div class="filterDiv colors">
+            Boas práticas em cybersegurança
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv cars">
+            Manutenção de notebook - passo a passo
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv cars">
+            Introdução a hardware
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv colors">
+            Introdução a hacking ético
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv cars">
+            Eletrônica básica
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv colors">
+            Políticas de segurança da informação
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv animals">
+            Aprenda sobre terminal Linux
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv animals">
+            Introdução a sistemas operacionais
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            Introdução a rede de computadores
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            Avançado sobre arquitetura de rede e como implementar 
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            Redes TCP/IP
+        </div>
+    </a>
+    <a href="assistir.html">
+        <div class="filterDiv fruits">
+            Entendendo sobre terminais
+        </div>
+    </a>
+
+    <script>
+        filterSelection("all")
+        function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+        }
+
+        function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+            }
+        }
+        }
+
+        function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+        }
+
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+        }
+    </script>
+    
+
+    <div class="socialmedia">
+        <img src="Imagens/facebook.png">
+        <img src="Imagens/instagram.png">
+        <img src="Imagens/twitter.png">
+    </div>
+  
+    <footer class="rodapé1">
+        <p>Todos os direitos reservados &copy;<br>2022 </p>
+    </footer>
+</body>
+</html>
